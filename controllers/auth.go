@@ -926,6 +926,8 @@ func (c *ApiController) HandleSamlLogin() {
 	samlResponse = url.QueryEscape(samlResponse)
 	targetUrl := fmt.Sprintf("%s?relayState=%s&samlResponse=%s",
 		slice[4], relayState, samlResponse)
+
+	fmt.Println(targetUrl)
 	c.Redirect(targetUrl, http.StatusSeeOther)
 }
 
